@@ -22,8 +22,9 @@ const getWeatherForecast = (latitude, longitude, callback=undefined) => {
                 console.log(errorString)
             }
         }else{
-            const {temperature, precipProbability} = body.currently
-            const responseString = body.daily.data[0].summary + ' It is currently '+temperature+' degrees'+'\nThere is '+precipProbability+' \% chance of rain'
+            const {temperature, precipProbability, humidity} = body.currently
+            debugger
+            const responseString = body.daily.data[0].summary + ' It is currently '+temperature+' degrees'+'\nThere is '+precipProbability+' \% chance of rain. Humidity is '+ humidity+'.'
             if(callback){
                 callback(undefined, responseString)
             }else{
